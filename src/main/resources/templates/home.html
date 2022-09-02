@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <h2>Logged user: <span sec:authentication="name"></span></h2>
+
+    <div sec:authorize="hasAuthority('ADMIN')">
+        You're ADMIN
+    </div>
+    <div sec:authorize="hasAuthority('MANAGER')">
+        You're MANAGER
+    </div>
+    <div sec:authorize="hasAuthority('USER')">
+        You're USER
+    </div>
+
+    <form th:action="@{/logout}" method=post>
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>
