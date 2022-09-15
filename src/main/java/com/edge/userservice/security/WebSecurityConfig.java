@@ -21,6 +21,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .antMatchers("/home").authenticated()
                         .antMatchers("/").authenticated()
+                        .antMatchers("/change-password").authenticated()
+                        .antMatchers("/update-password").authenticated()
                         .anyRequest().permitAll())
                 .formLogin().defaultSuccessUrl("/home")
                 .and()
